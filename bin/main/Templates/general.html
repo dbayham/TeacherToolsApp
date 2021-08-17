@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header th:fragment="header" id="header">
+    <nav class="nav-bar">
+      <p class="teacher-tools">Teacher Tools</p>
+
+      <ul class="navigation-items">
+        <li class="list-item"><a href="/">Home</a></li>
+        <li class="list-item"><a href="/students">All Students</a></li>
+        <li class="list-item"><a href="about-page-template">About the Developers</a></li>
+      </ul>
+
+      <div class="header-spacer"></div>
+    </nav>
+  </header>
+
+  <footer th:fragment="footer" id="footer">
+    <nav class="nav-bar">
+      <div class="footer-spacer"></div>
+
+      <ul class="navigation-items">
+        <li class="list-item"><a href="#header">Back To Top</a> </li>
+        <li class="list-item"><a href="/">Home</a></li>
+        <li class="list-item"><a href="/students">All Students</a></li>
+        <li class="list-item"><a href="about-page-template">About the Developers</a></li>
+      </ul>
+
+      <p class="copyright">&copycopyright Teacher Tools 2021</p>
+
+    </nav>
+  </footer>
+</body>
+
+</html>

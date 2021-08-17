@@ -1,0 +1,16 @@
+### Post a new Classroom
+POST http://localhost:8080/api
+Content-Type: application/json
+
+{"subject": "Java 101", "gradeLevel": 11, "room": "202B", "time": "1:00pm", "year": 2021, "semester": "Fall"}
+
+### Add a new Student
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{"name": "Johnny Newsome", "studentImage": "image", "guardianName": "Mommy Newsome", "guardianEmail": "emails@email.com", "guardianPhone": "614-555-2121", "birthdayDay" : 31, "birthdayMonth" : 3, "birthdayYear": 2013}
+
+POST http://localhost:8080/api/assignments
+Content-Type: application/json
+
+{"Assignment Name": "Learning Java", "Description": "assignment 1", "due date": "09/01/2021", "PointsWorth": "100", "Classroom": "Computer Basics"}

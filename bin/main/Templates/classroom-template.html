@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Teacher Tools - Your Classroom</title>
+</head>
+
+<body>
+  <header th:insert="general.html :: header" id="header"></header>
+  <div class="container">
+    <div class="left-sidebar"></div>
+    <main class="main-content">
+      <p class="page-title" th:text="${individualClassroom.subject}"></p>
+
+      <section class="classroom-page-main-box">
+
+        <p class="single-classroom-page-take-roll-call-button">
+          <a th:each="rollCall:${individualClassroom}" th:href="@{/classroom/roll-call(id=${rollCall.id})}">Take Roll
+            Call</a>
+        </p>
+        
+        <section class="single-classroom-page-section-box">
+          <p class="single-classroom-page-section-title">Student List:</p>
+          <ul class=single-classroom-page-single-student-list th:each="student:${individualClassroom.students}">
+            <li><a th:href="@{/student(id=${student.id})}" th:text="${student.getName()}"></a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="single-classroom-page-section-box">
+          <p class="single-classroom-page-section-title">Assignments:</p>
+          <ul class="single-classroom-page-assignment-list" th:each="assignment:${individualClassroom.assignments}">
+            <li><a th:href="@{/assignment(id=${assignment.id})}" th:text="${assignment.name}"></a></li>
+          </ul>
+        </section>
+
+        <section class="single-classroom-page-add-new-assignment-box">
+          <div>
+            <!--Take this div out to shorten the length of the input boxes-->
+            <p class="single-classroom-page-add-new-assignment-title">Add New Assignment:</p>
+            <button onclick="hideShowAssignmentToClass()">Hide and Show</button>
+            <div id="hideToggleAddNewClass">
+            <form action="/classroom/newAssignment" class="single-classroom-page-add-new-assignment-form" method="POST">
+              <input type="hidden" name="classroomId" class="form-element" th:value="${individualClassroom.id}">
+              <label for="name">Assignment Name: </label>
+              <input type="text" id="name" name="name" class="form-element" required>
+              <label for="description">Description: </label>
+              <input type="text" id="description" name="description" class="form-element" required>
+              <label for="assignedDate">Date of Assignment: </label>
+              <input type="date" id="assignedDate" name="assignedDate" class="form-element" required>
+              <label for="dueDate">Assignment Due Date: </label>
+              <input type="date" id="dueDate" name="dueDate" class="form-element" required>
+              <label for="pointsValue">Points Value: </label>
+              <input type="number" id="pointsValue" name="pointsValue" min="1" step="1" class="form-element" required>
+              <input type="submit" value="Add Assignment" class="single-classroom-page-add-new-assignment-button">
+
+            </form>
+          </div>
+        </div>
+        </section>
+     
+
+        <section class="single-classroom-page-add-new-student-to-class-box">
+          <div>
+            <!--Take this div out to shorten the length of the input boxes-->
+            <p class="single-classroom-page-add-new-student-to-class-title">Add Student To This Class:</p>
+            <button onclick="hideShowStudentToClass()">Hide and Show</button>
+            <div id="hideToggleStudentToClass">
+            <form th:action="'/classroom/addStudent/?id='+${individualClassroom.id}"
+              class="single-classroom-page-add-new-student-to-class-form" method="POST">
+              <label for="student">Available Students: </label><select id="student" name="student">
+                <option th:each="student:${allStudents}" th:value="${student.id}" name="student" class="form-element"
+                  th:text="${student.name}">
+                </option>
+              </select>
+              <input type="submit" value="Add Student" class="single-classroom-page-add-new-student-to-class-button">
+            </form>
+          </div>
+        </div>
+        </section>
+
+        <form th:action="'/classroom/deleteClassroom/'+${individualClassroom.id}" method="POST">
+          <button type="submit" class="delete-button">Delete Classroom</button>
+          </select>
+        </form>
+
+      </section>
+    </main>
+    <div class="right-sidebar"></div>
+
+  </div>
+  <footer th:insert="general.html :: footer"></footer>
+  <script src="/js/addHideToggle.js"></script>
+</body>
+
+</html>

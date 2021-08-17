@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Teacher Tools - Your Student</title>
+</head>
+
+<body>
+    <header th:insert="general.html :: header" id="header"></header>
+    <div class="container">
+        <div class="left-sidebar"></div>
+        <main class="main-content" id="single-student-page-main-content">
+            <div>
+                <p class="page-title">Student Information</p>
+            </div>
+
+
+            <div class="single-student-page-profile-box">
+                <p class="single-student-page-profile-name" th:text="${individualStudent.name}"></p>
+                <!-- <div> -->
+                <div class="single-student-page-text-pic">
+                    <!-- <div class="single-student-page-headshot-box"> -->
+                    <img class="single-student-page-headshot" th:src="${individualStudent.studentImage}"
+                        th:alt="${'Photo of ' + individualStudent.name}" height="200px" width="200px">
+                    <!-- </div> -->
+                    <div class="single-student-page-text-and-details">
+                        <div class="single-student-page-profile-text">
+                            <ul>
+                                <p class="single-student-page-guardian-info-title">Guardian Information</p>
+                                <li th:text="${individualStudent.guardianName}"></li>
+                                <li th:text="${individualStudent.guardianPhone}"></li>
+                                <li th:text="${individualStudent.guardianEmail}"></li>
+                                <p class="single-student-page-student-b-day-title">Student's Birthday</p>
+                                <li
+                                    th:text="${individualStudent.birthdayMonth + '/' + individualStudent.birthdayDay + '/' + individualStudent.birthdayYear}">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- </div> -->
+
+            </div>
+            <section class="single-student-page-main-box">
+                <ul>
+                    <p class="single-student-page-student-classes-title">Student's Classes:</p>
+
+                    <li th:each="classroom: ${individualStudent.classrooms}"><a
+                            th:href="@{/classroom(id=${classroom.id})}" th:text="${classroom.subject}"></a>
+                    </li>
+                </ul>
+
+                <div class="single-student-page-student-grades">
+                    <h4>Student Grades:</h4>
+                    <ul class="grade-list" th:each="grade:${individualStudent.grades}">
+                        <div class="single-student-page-list-box">
+                            <li th:text="${'Assignment Name: ' + grade.assignment.name}"></li>
+                            <li th:text="${'Grade: ' + grade.grade + '/' + grade.maximumGrade}"></li>
+                            <form th:action="'/student/deletegrade/'+${individualStudent.id}" th:method="post">
+                                <input type="hidden" name="gradeId" th:value="${grade.id}">
+                                <button type="submit" class="delete-button">Delete Grade</button>
+                            </form>
+                        </div>
+                    </ul>
+                    <h4 class="total-grade"
+                        th:text="${'Overall Grade Average: ' + individualStudent.calculateTotalGrade() + '%'}"></h4>
+                </div>
+
+                <Section class="single-student-page-list-box-arround-student-notes-and-add-a-note">
+                    <!-- <div> -->
+                    <div class="single-student-page-list-box">
+                        <p class="single-student-page-list-title">Notes About This Student</p>
+                        <ul class="note-list" th:each="note:${individualStudent.notes}">
+                            <li th:text="${'Note Title: ' + note.title}"></li>
+                            <li th:text="${'Note Date: ' + note.noteDate}"></li>
+                            <li th:text="${'Note: ' + note.note}"></li>
+                            <form th:action="'/student/deletenote/'+${individualStudent.id}" th:method="post">
+                                <input type="hidden" name="noteId" th:value="${note.id}">
+                                <button type="submit" class="delete-button">Delete Note</button>
+                            </form>
+                        </ul>
+                    </div>
+
+                    <div class="single-student-page-student-note">
+                        <p class="single-student-page-notes-add-a-note-about-this-student-title">Add A Note About
+                            This
+                            Student</p>
+                        <form th:action="'/student/'+${individualStudent.id}"
+                            class="single-student-page-notes-add-a-note-about-this-student-form" id="student-note"
+                            method="post">
+                            <label for="title">Title: </label> <input class="form-element" id="title" type="text"
+                                name="title" required>
+                            <label for="date">Date: </label> <input class="form-element" id="date" type="date"
+                                name="date" required>
+                            <p>Note:</p>
+                            <textarea class="form-element" rows="4" cols="50" name="note" form="student-note"
+                                required></textarea>
+                            <input type="submit" value="Add Note"
+                                class="single-student-page-notes-add-a-note-about-this-student-button">
+                        </form>
+
+                        <form th:action="'/classroom/deletestudent/'+${individualStudent.id}" method="POST">
+                            <button type="submit" class="delete-button">Delete Student</button>
+                            </select>
+                        </form>
+                    </div>
+                    <!-- </div> -->
+                </Section>
+
+            </section>
+
+        </main>
+        <div class="right-sidebar"></div>
+    </div>
+    <footer th:insert="general.html :: footer"></footer>
+    
+</body>
+
+</html>
