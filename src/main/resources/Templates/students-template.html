@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Teacher Tools - Your Students</title>
+</head>
+
+<body>
+    <header th:insert="general.html :: header" id="header"></header>
+    <div class="container">
+        <div class="left-sidebar"></div>
+        <main class="main-content">
+
+            <p class="page-title">Your Students</p>
+
+            <section class="students-page-main-box">
+
+                <section class="students-page-classroom-list-box">
+                    <ul class="students-page-classroom-list" th:each="student:${students}">
+                        <li><a th:href="@{/student(id=${student.id})}" th:text="${student.name}"></a>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="students-page-add-a-student-box">
+                    <div>             <!--Take this div out to shorten the length of the input boxes-->
+
+                        <div class="add-student">
+                            <p class="students-page-add-a-student-title">Add A New Student:</p>
+                            <button  class="hide-show-button" onclick="hideShowNewStudent()">Hide and Show</button>
+                            <div id="hideToggleNewStudent">
+                            <form th:action="'/students/add'" class="students-page-add-a-student-form" method="post">
+                                <label for="name">Student's Name: </label><input id="name" class="form-element"
+                                    type="text" name="name" required>
+                                <label for="studentImage">Image URL: </label><input id="studentImage"
+                                    class="form-element" type="text" name="studentImage" required>
+                                <label for="guardianName">Guardian Name: </label><input id="guardianName"
+                                    class="form-element" type="text" name="guardianName" required>
+                                <label for="guardianEmail">Guardian Email: </label><input id="guardianEmail"
+                                    class="form-element" type="email" name="guardianEmail" required>
+                                <label for="guardianPhone">Guardian Phone: </label><input id="guardianPhone"
+                                    class="form-element" type="text" name="guardianPhone" required>
+                                <label for="birthdayDay">Birth Day: </label><input id="birthdayDay" class="form-element"
+                                    type="number" name="birthdayDay" min="1" max="31" step="1" required>
+                                <label for="birthdayMonth">Birth Month: </label><input id="birthdayMonth"
+                                    class="form-element" type="number" name="birthdayMonth" min="1" max="12" step="1"
+                                    required>
+                                <label for="birthdayYear">Birth Year: </label><input id="birthdayYear"
+                                    class="form-element" type="number" name="birthdayYear" min="1900" max="2100"
+                                    step="1" required>
+
+                                <input type="submit" value="Add Student" class="students-page-add-a-student-button" >
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+
+            </section>
+
+        </main>
+        <div class="right-sidebar"></div>
+
+    </div>
+
+
+    <footer th:insert="general.html :: footer"></footer>
+
+    <script src="/js/addHideToggle.js"></script>
+    <!--    <script src="/js/addStudentForm.js" type="module"></script>-->
+
+</body>
+
+</html>

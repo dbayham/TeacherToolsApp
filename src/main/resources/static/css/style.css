@@ -1,0 +1,972 @@
+/* styles.css */
+@font-face {
+  font-family: "pencilpete_fontregular";
+  src: url("..//fonts/pencilpetefont-844b-webfont.woff2") format("woff2"),
+    url("..//fonts/pencilpetefont-844b-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  background-color: lemonchiffon;
+  background: rgb(123, 124, 126);
+  box-sizing: border-box;
+}
+
+body {
+  padding: 5px;
+  font: normal 100% system-ui, sans-serif;
+
+  border: 10px;
+  font-size: 1em;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  font-family: "Open Sans", sans-serif;
+}
+
+.teacher-tools {
+  font-size: 4em;
+  /* padding: top | right | bottom | left; */
+  padding: 20px 1px 0px 1px;
+  color: rgb(196, 235, 253);
+  font-weight: bold;
+  text-shadow: 5px 5px 1px rgba(0, 0, 0, 0.5);
+  margin: 1px;
+  font-family: pencilpete_fontregular, "Times New Roman", Times, serif;
+  width: 25%;
+}
+
+.container {
+  /* height: calc(100vh - 10px); */
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 10px;
+}
+
+#about-container {
+  /* height: calc(100vh - 10px); */
+  /* display: grid; */
+  grid-template-columns: 0.5fr 2fr 0.5fr;
+}
+
+header {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+}
+
+footer {
+  grid-column: 1 / 4;
+  grid-row: 3 / 4;
+}
+
+.copyright {
+  color: rgb(9, 73, 198);
+  width: 25%;
+  text-align: right;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+li a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.5em;
+}
+
+li a:hover {
+  font-weight: bold;
+  color: rgb(211, 185, 74);
+}
+
+.nav-bar {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  border-radius: 4px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  /* padding: top | right | bottom | left; */
+  padding: 0px 20px 0px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#header .nav-bar {
+  background: rgb(9, 73, 198);
+  align-items: center;
+}
+
+#footer .nav-bar {
+  background: rgb(66, 159, 216);
+  align-items: center;
+}
+
+#footer li a {
+  font-size: 1.15em;
+}
+
+.footer-spacer,
+.header-spacer {
+  width: 25%;
+}
+
+.home-page-classroom-list-title,
+.single-classroom-page-section-title,
+.students-page-classroom-list-title,
+.single-student-page-list-title,
+.roll-call-page-student-list-title,
+.single-assignment-page-list-title {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.single-assignment-page-list-title-normal {
+  font-size: 2em;
+  font-weight: normal;
+  margin: 0;
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.single-student-page-list-box-around-student-notes-and-add-a-note,
+.single-student-page-classes-and-grades-box {
+  /* color: whitesmoke; */
+  border: 2px solid black;
+  background-image: url(..//images/free-chalkboard-black.jpg);
+  background-size: 100%;
+  background-position: center;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  margin: 10px;
+  padding: 5px 20px;
+  width: 90%;
+  align-items: center;
+}
+
+.home-page-classroom-list-box,
+.single-classroom-page-section-box,
+.students-page-classroom-list-box,
+.single-student-page-list-box,
+.roll-call-page-student-list-box,
+.single-assignment-page-list-box {
+  color: whitesmoke;
+  border: 2px solid black;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  background-image: url(..//images/free-chalkboard-green.jpg);
+  border-radius: 6px;
+  margin: 10px auto;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  text-align: center;
+  align-items: center;
+}
+
+/* this must follow the section above */
+.single-assignment-page-list-box {
+  text-align: left;
+  padding-top: 10px;
+}
+
+/* this must follow the section above */
+.single-student-page-grade-box {
+  text-shadow: none;
+  font-weight: normal;
+  color: black;
+  background-color: lemonchiffon;
+  background-image: none;
+  margin: 10px 10px;
+  padding: 5px 10px;
+}
+
+.single-student-page-note-list,
+.single-student-page-student-note {
+  text-shadow: none;
+  word-wrap: break-word;
+  font-size: 0.9em;
+  font-weight: normal;
+  color: rgb(9, 73, 198);
+  border: 2px solid black;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  background: lemonchiffon;
+  /* margin: 10px auto; */
+  margin: 10px 10px;
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  text-align: center;
+  align-items: center;
+}
+
+/* The following section needs to follow the section below */
+.single-student-page-student-note {
+  margin: 15px auto;
+  padding: 20px;
+  width: auto;
+  color: black;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.single-student-page-student-grade-list {
+  color: lemonchiffon;
+  margin: 20px auto;
+}
+
+.single-assignment-page-add-new-grade-student-and-grade {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.single-assignment-page-list-box-add-a-new-grade form {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  padding: 10px 0px;
+  margin: 5px auto;
+  font: normal 100% system-ui, sans-serif;
+}
+
+.single-assignment-page-list-box-add-a-new-grade form #student {
+  font: normal 90% system-ui, sans-serif;
+}
+
+.single-student-page-student-grades {
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  border: 2px solid black;
+  background-image: url(..//images/free-chalkboard-green.jpg);
+  border-radius: 6px;
+  padding: auto;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.home-page-classroom-list,
+.single-classroom-page-single-student-list,
+.single-classroom-page-assignment-list,
+.students-page-classroom-list,
+.roll-call-page-student-list {
+  font-size: 1em;
+  margin: 5px auto; /* adjusts the distance between the classrooms */
+}
+
+.roll-call-page-student-list li {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 1.5em;
+}
+
+.navigation-items li {
+  /* padding: top | right | bottom | left; */
+  padding: 0px 10px 0px 10px;
+  justify-content: space-around;
+}
+
+.list-item,
+.header-list-item,
+.footer-list-item {
+  display: inline;
+  list-style-type: none;
+}
+
+.room-info li {
+  display: inline;
+  /* padding: top | right | bottom | left; */
+  padding: 0em 2em 0em 2em;
+}
+
+.students-and-assignments {
+  display: flex;
+  width: 50%;
+}
+
+.students {
+  border: 5px solid black;
+}
+
+.assignments {
+  border: 5px solid black;
+}
+
+.assignments,
+.students {
+  padding: 30px;
+  width: 50%;
+}
+
+.assignments h3,
+.students h3 {
+  text-align: center;
+}
+
+.assignments li,
+.students li {
+  align-items: center;
+  padding-left: 0px;
+  list-style: none;
+}
+
+.left-sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  filter: drop-shadow(5px 5px 2px rgba(0, 0, 0, 0.4));
+  background-image: url(..//images/stack-of-books.svg);
+  background-size: 100%;
+  background-position: left;
+  /* margin: top/bottom | right/left */
+  margin: 10px 0px;
+}
+
+.right-sidebar {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  background-image: url(..//images/right-side-artwork.jpg);
+  background-size: 110%;
+  border-radius: 4px;
+  /* margin: top/bottom | right/left */
+  margin: 10px 0px;
+  width: 85%;
+  background-position-x: right;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.main-content {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background-color: rgb(123, 124, 126);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#about-main-content,
+#single-student-page-main-content {
+  align-items: stretch;
+}
+
+.home-page-main-box,
+.classroom-page-main-box,
+.students-page-main-box,
+.single-student-page-main-box,
+.roll-call-page-main-box,
+.single-assignment-page-main-box {
+  align-items: center;
+  background: lemonchiffon;
+  border-radius: 6px;
+  border: 2px solid black;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  margin: 20px auto;
+  padding: 20px 10px 20px 10px;
+  text-align: center;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+  width: 90%;
+}
+
+/* This must come after the section above */
+.single-assignment-page-main-box {
+  align-items: flex-start;
+}
+
+.home-page-add-new-classroom-title,
+.single-classroom-page-add-new-assignment-title,
+.single-classroom-page-add-new-student-to-class-title,
+.students-page-add-a-student-title,
+.single-student-page-guardian-info-title,
+.single-student-page-student-b-day-title,
+.single-student-page-student-classes-title,
+.single-student-page-notes-add-a-note-about-this-student-title,
+.single-assignment-page-assignment-details-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+/* This must come after the section above */
+.single-student-page-student-classes-title,
+.single-student-page-student-grades-title {
+  color: lemonchiffon;
+}
+
+/* This must come after the section above */
+.single-student-page-student-b-day-title {
+  margin-top: 15px;
+}
+
+/* This must come after the section above */
+.single-student-page-student-b-day-title {
+  margin-top: 15px;
+}
+
+.single-assignment-page-assignment-details-title {
+  color: lemonchiffon;
+}
+
+.single-assignment-page-assignment-details {
+  font-size: 1.25em;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 5px;
+  /* padding: top | right | bottom | left; */
+  padding: 10px 10px 10px 0px;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.single-assignment-page-assignment-details li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.single-assignment-page-assignment-details li a {
+  font-size: 1.25em;
+  font-weight: normal;
+  margin: 0;
+  /* padding: top | right | bottom | left; */
+  padding: 0px 10px 0px 20px;
+}
+
+.single-assignment-page-assignment-details-students {
+  margin: 0;
+  padding: 0;
+}
+
+.home-page-add-a-new-classroom-box,
+.single-classroom-page-add-new-assignment-box,
+.single-classroom-page-add-new-student-to-class-box,
+.students-page-add-a-student-box,
+/* .single-student-page-student-note, */
+.single-assignment-page-list-box-add-a-new-grade {
+  align-items: center;
+
+  background-image: url(..//images/free-chalkboard-green.jpg);
+  border: 2px solid black;
+  border-radius: 6px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  color: whitesmoke;
+  display: grid;
+  grid-column: 2 / 3;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  margin: 20px auto;
+  padding: 20px 10px 20px 10px;
+  text-align: center;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+  width: 60%;
+}
+
+.home-page-new-classroom-form,
+.single-classroom-page-add-new-assignment-form,
+.single-classroom-page-add-new-student-to-class-form,
+.students-page-add-a-student-form,
+.single-student-page-notes-add-a-note-about-this-student-form
+  .delete-student-grade {
+  color: lemonchiffon;
+  text-align: center;
+  margin: auto;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+  align-items: center;
+}
+
+.form-element {
+  font: normal 100% system-ui, sans-serif;
+  font-size: 1em;
+  text-align: center;
+  align-items: center;
+  border-radius: 4px;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+}
+
+.home-page-new-classroom-form-button,
+.single-classroom-page-add-new-student-to-class-button,
+.single-classroom-page-add-new-assignment-button,
+.students-page-add-a-student-button,
+.single-student-page-notes-add-a-note-about-this-student-button,
+.single-assignment-page-add-new-grade-button {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: lemonchiffon;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.hide-show-button {
+  background-color: rgb(123, 124, 126);
+  border-radius: 4px;
+  border: 1px solid black;
+  box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+  color: lemonchiffon;
+  margin: 2px;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+.hide-show-button:hover {
+  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.delete-button {
+  font-size: 1em;
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: red;
+  border-radius: 4px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  padding: 5px 20px;
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+
+  /* text-shadow: top right, 
+    bottom-right, 
+    bottom-left, 
+    top-left */
+  text-shadow: 1px -1px 0px rgba(0, 0, 0, 0.3),
+    1.5px 1.5px 0px rgba(0, 0, 0, 0.3), -1px 1px 0px rgba(0, 0, 0, 0.3),
+    -1px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.delete-button:hover {
+  cursor: pointer;
+  border-style: inset;
+  font-weight: normal;
+  background-color: rgba(255, 0, 0, 0.9);
+}
+
+#usrform,
+.student-list,
+.room-info,
+.student-info,
+.teacher-notes,
+.assignment-info {
+  font-size: 1.25em;
+  /* padding: top | right | bottom | left; */
+  padding: 20px 20px 20px 20px;
+  border-radius: 4px;
+  border: 5px solid black;
+  box-shadow: 15px 15px 2px rgba(0, 0, 0, 0.2);
+}
+
+.about-page-title,
+.page-title {
+  /* padding: top | right | bottom | left; */
+  background: rgb(196, 235, 253);
+  border: 2px solid black;
+  border-radius: 6px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  color: rgb(9, 73, 198);
+  display: grid;
+  grid-column: 2 / 3;
+  font-family: pencilpete_fontregular, Arial, Helvetica, sans-serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  margin: 20px;
+  padding: 20px 10px 20px 10px;
+  text-align: center;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+  width: 90%;
+}
+
+/* The following section must follow the section above */
+#about-page-title {
+  width: auto;
+}
+
+/* The following section must follow the section above */
+#single-student-page-title {
+  width: 90%;
+}
+
+.roll-call-page-title {
+  background: rgb(196, 235, 253);
+  border: 2px solid black;
+  border-radius: 6px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  color: rgb(9, 73, 198);
+  display: grid;
+  grid-column: 2 / 3;
+  font-family: pencilpete_fontregular, Arial, Helvetica, sans-serif;
+  font-size: 3.5em;
+  font-weight: bold;
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  /* margin: top | right | bottom | left; */
+  margin: 20px auto 20px auto;
+  /* padding: top | right | bottom | left; */
+  padding: 2px 1px 2px 1px;
+  text-align: center;
+  text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3);
+  width: 90%;
+}
+
+.roll-call-page-title p {
+  margin-block-end: 0px;
+  margin-block-start: 0px;
+  margin-inline-end: 0px;
+  margin-inline-start: 0px;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+  /* padding: top | right | bottom | left; */
+  padding: 20px 1px 1px 1px;
+}
+
+#roll-call-page-title {
+  font: normal 30% system-ui, sans-serif;
+  color: black;
+  /* padding: top | right | bottom | left; */
+  padding: 1px 1px 20px 1px;
+}
+
+.room-info li {
+  /* padding: top | right | bottom | left; */
+  padding: 20px 20px 20px 20px;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.assignment-info {
+  margin: 10px;
+  overflow-wrap: break-word;
+  hyphens: manual;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.about-profile-box,
+.single-student-page-profile-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 6px;
+  margin: 20px;
+  padding-bottom: 10px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.4);
+  background: lemonchiffon;
+  width: auto;
+}
+
+/* The following section must follow the section above */
+.single-student-page-profile-box {
+  /* padding: top | right | bottom | left; */
+  margin: 20px 50px 20px 20px;
+  margin: 20px auto;
+}
+
+.about-headshot-text-links,
+.single-student-page-text-pic {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  font-size: 1em;
+  font-weight: bold;
+  justify-content: center;
+  margin-top: 0px;
+  margin: 5px;
+}
+
+.about-headshot-box,
+.single-student-page-headshot-box {
+  align-items: center;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+  margin: 10px;
+}
+
+.about-headshot,
+.single-student-page-headshot {
+  border-radius: 4px;
+  border: 1px solid black;
+  box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.4);
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.about-page-profile-name,
+.single-student-page-profile-name {
+  display: block;
+  margin: 5px 15px;
+  /* padding: top | right | bottom | left; */
+  padding: 5px 0px 2px 0px;
+  border-bottom: 2px solid rgb(9, 73, 198);
+  font-size: 2em;
+  color: rgb(9, 73, 198);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  width: auto;
+}
+
+#about-page-profile-name {
+  font-family: pencilpete_fontregular, "Times New Roman", Times, serif;
+}
+
+.about-text-and-links,
+.single-student-page-text-and-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 0px;
+  margin-left: 10px;
+}
+
+.about-profile-text,
+.single-student-page-profile-text {
+  align-items: baseline; /* align vertical */
+  border-radius: 4px;
+  border: 1px solid black;
+  box-shadow: 7px 7px 1px rgba(0, 0, 0, 0.4);
+  display: flex;
+  font-size: 1.1em;
+  font-weight: normal;
+  justify-content: center; /* align horizontal */
+  margin: 10px 10px 0 10px;
+  padding: 10px;
+  padding-bottom: 0;
+  color: whitesmoke;
+  background-image: url(..//images/free-chalkboard-green.jpg);
+}
+
+.about-profile-text p {
+  margin: 0px;
+}
+
+.single-student-page-profile-text li {
+  font-size: 1em;
+  font-weight: normal;
+  padding: 2px;
+  margin-left: 10px;
+}
+
+.single-student-page-profile-text ul {
+  margin: 5px 10px;
+}
+
+.about-links-box {
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.75em;
+  font-weight: normal;
+  min-width: 150px;
+}
+
+.about-links-logos {
+  align-items: center;
+  display: flex;
+  /* filter: drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5)); */
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0px;
+  padding: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.about-links-logos p {
+  margin: 0px;
+  color: whitesmoke;
+  color: rgb(9, 73, 198);
+}
+
+.about-links-box a {
+  padding: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  padding: 10px 0px;
+  /* Changes width of items in form boxes */
+  /* align-items: center;   */
+}
+
+form input {
+  margin: 5px 0px;
+  align-items: center;
+}
+
+input#grade,
+input#maximumGrade {
+  width: 5em;
+  text-align: center;
+}
+
+select#student {
+  width: auto;
+  text-align: center;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+  border-style: inset;
+  /* lemonchiffon */
+  background-color: rgba(255, 250, 205, 0.9);
+  box-shadow: inset 2px 2px 1px rgb(0 0 0 / 40%);
+}
+
+form input[type="submit"] {
+  max-width: 150px;
+  padding: 10px;
+}
+
+#roll-student {
+  opacity: 1;
+  -webkit-transition: opacity 1000ms linear;
+  transition: opacity 1000ms linear;
+}
+
+#roll-student:hover {
+  color: red;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+#student-list:hover {
+  cursor: pointer;
+  border-style: inset;
+  /* lemonchiffon */
+  background-color: rgba(255, 250, 205, 0.9);
+}
+
+.single-classroom-page-take-roll-call-button {
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  height: 50px;
+  margin-bottom: 10px;
+  outline: none;
+  position: relative;
+  width: 220px;
+  z-index: 0;
+  margin-block-start: 0;
+}
+
+.single-classroom-page-take-roll-call-button a {
+  color: lemonchiffon;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  background-color: rgba(211, 185, 56, 0.5);
+  display: block;
+  position: relative;
+  padding: 10px 20px;
+  /* top right, bottom-right, bottom-left, top-left */
+  text-shadow: 1px -1px 2px rgba(0, 0, 0, 0.2), 2px 2px 2px rgba(0, 0, 0, 0.8),
+    -1px 1px 2px rgba(0, 0, 0, 0.2), -1px -1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 2px 2px 1px rgb(211, 185, 56),
+    6px 6px 1px rgba(0, 0, 0, 0.3);
+  border: 1px solid orange;
+  border-radius: 4px;
+}
+
+.single-classroom-page-take-roll-call-button:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.single-classroom-page-take-roll-call-button a:active {
+  background-color: orange;
+  color: black;
+  text-shadow: none;
+  font-size: 1.25em;
+}
+
+.single-classroom-page-take-roll-call-button a:hover {
+  box-shadow: none;
+}
+
+.single-classroom-page-take-roll-call-button:active:after {
+  background: transparent;
+}
+
+.single-classroom-page-take-roll-call-button:hover:before {
+  opacity: 1;
+}
+
+.single-classroom-page-take-roll-call-button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* Part of roll-call-button animation */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

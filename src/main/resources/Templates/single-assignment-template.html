@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Teacher Tools - Your Assignment</title>
+</head>
+
+<body>
+  <header th:insert="general.html :: header" id="header"></header>
+  <div class="container">
+    <div class="left-sidebar"></div>
+    <main class="main-content">
+      <p class="page-title">Assignment Information</p>
+
+      <section class="single-assignment-page-main-box">
+        <p class="single-assignment-page-list-title-normal"
+          th:text="'Class: '+${individualAssignment.classroom.subject}"></p>
+
+        <section class="single-assignment-page-list-box">
+          <p class="single-assignment-page-assignment-details-title">Assignment Name:</p>
+          <p class="single-assignment-page-assignment-details" th:text="${individualAssignment.name}"></p>
+          <ul class="single-assignment-page-assignment-details">
+            <p class="single-assignment-page-assignment-details-title">Assignment Details:</p>
+            <li th:text="${individualAssignment.description}"></li>
+            <li th:text="'Assignment Date: '+${individualAssignment.assignedDate}"></li>
+            <li th:text="'Due Date: '+${individualAssignment.dueDate}"></li>
+            <li th:text="'Total Points: '+${individualAssignment.pointsValue}"></li>
+            <p class="single-assignment-page-assignment-details-title">Students Assigned:</p>
+            <li th:each="student: ${individualAssignment.students}">
+              <a th:href="@{/student(id=${student.id})}" th:text="${student.name}"></a>
+            </li>
+          </ul>
+          <p class="single-assignment-page-assignment-details-title"
+            th:text="${'The Average Grade For This Assignment Is: ' + individualAssignment.calculateAssignmentAverageGrade()}">
+          </p>
+        </section>
+
+        <p class="single-assignment-page-list-title-normal">Add New Grade:</p>
+
+        <section class="single-assignment-page-list-box-add-a-new-grade">
+          <form th:action="'/assignment/' + ${individualAssignment.id}" id="assignment-grade" method="POST">
+            <div>
+              <label for="maximumGrade">Maximum Grade: </label><input id="maximumGrade"
+                th:value="${individualAssignment.pointsValue}" type="number" name="maximumGrade" min="1" step="1"
+                required />
+            </div>
+            <div class="single-assignment-page-add-new-grade-student-and-grade">
+              <!-- <div> -->
+              <label for="student">Student: </label><select id="student" name="student">
+                <option th:each="student:${individualAssignment.students}" th:value="${student.id}" name="student"
+                  th:text="${student.name}"></option>
+              </select>
+              <!-- </div> -->
+              <!-- <div> -->
+              <label for="grade">Grade: </label><input id="grade" type="number" name="grade" min="0" step="1"
+                required />
+              <!-- </div> -->
+            </div>
+            <input type="submit" value="Add Grade" class="single-assignment-page-add-new-grade-button" />
+          </form>
+        </section>
+
+      </section>
+
+      <form th:action="'/assignment/deleteassignment/'+${individualAssignment.id}" method="POST">
+        <button class="delete-button" type="submit" >Delete Assignment</button>
+      </form>
+
+    </main>
+    <div class="right-sidebar"></div>
+
+  </div>
+  <footer th:insert="general.html :: footer"></footer>
+</body>
+
+</html>
